@@ -36,7 +36,7 @@ io.on("connection", (socket)=>{
 
     io.in(`room_1`).fetchSockets().then(data=>{
         users = data.map(user=>{
-            return {user:user.nickname, writing:false}
+            return {user:user.id, writing:false}
         })
         io.emit("users",{users:users})
     })

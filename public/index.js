@@ -15,7 +15,7 @@ window.addEventListener("load",function(){
     send.addEventListener("click", ()=>{
         socket.emit("message",message.value)
         message.value=""
-        let writing = false
+        writing = false
         socket.emit("writing",writing)
     })
     disconnect.addEventListener("click",()=>{
