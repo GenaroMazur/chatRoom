@@ -30,12 +30,12 @@ window.addEventListener("load",function(){
     let writing = false
     message.addEventListener("keyup",(e)=>{
         if(writing){
-            if(!message.value){
+            if(message.value==0){
                 writing = false
                 socket.emit("writing",writing)
             }
         }else{
-            if(message.value){
+            if(message.value.length>0){
                 writing = true
                 socket.emit("writing",writing)
             }
