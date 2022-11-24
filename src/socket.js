@@ -5,9 +5,6 @@ let users=[]
 
 io.on("connection", (socket)=>{
     socket.nickname = "stranger"
-    socket.on("nickname",(nick)=>{
-        socket.nickname = nick || "stranger"
-    })
     socket.join("room_1")
     socket.to("room_1").emit("message", socket.nickname +" connected")
 
@@ -22,7 +19,7 @@ io.on("connection", (socket)=>{
     })
 
     socket.on("message",(data)=>{
-        let mensaje = socket.id + " : " + data
+        let mensaje = socket.nickname + " : " + data
         io.to("room_1").emit("message",mensaje)
     })
 
@@ -43,5 +40,4 @@ io.on("connection", (socket)=>{
         })
         io.emit("users",{users:users})
     })
-    console.log(socket.nickname);
 })

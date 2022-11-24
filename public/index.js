@@ -1,29 +1,12 @@
 const socket = io()
-socket.close()
-
 window.addEventListener("load",function(){
     const message = document.getElementById("message")
-    const nickname = document.getElementById("nickname")
-    let name = "stranger"
-    socket.emit("nickname",name)
     const send = document.getElementById("send")
     const disconnect = document.getElementById("disconnect")
     const connect = document.getElementById("connect")
     const recibido = document.getElementById("recibido")
     const users = document.getElementById("users")
     const clear = document.getElementById("clear")
-
-
-    
-    nickname.addEventListener("change",(e)=>{
-        if(e.value){
-            socket.open()
-            socket.on("connect",()=>{
-                name = e.value
-                socket.emit("nickname",name)
-            })
-        }
-    })
 
     //buttons
     clear.addEventListener("click", ()=>{
